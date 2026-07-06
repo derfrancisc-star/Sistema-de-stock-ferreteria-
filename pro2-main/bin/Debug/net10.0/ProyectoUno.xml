@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProyectoUno</name>
+    </assembly>
+    <members>
+        <member name="T:ProyectoUno.Presentacion.Controllers.ProductoController">
+            <summary>
+            Expone las operaciones del Sistema de Gestión de Stock:
+            alta, baja, modificación, búsquedas y control de inventario de productos.
+            </summary>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.Listar(ProyectoUno.Aplicacion.Servicios.ListarProductosService)">
+            <summary>
+            Obtiene el listado completo de productos registrados.
+            </summary>
+            <returns>Lista de productos (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.ObtenerPorId(System.Int32,ProyectoUno.Aplicacion.Servicios.ObtenerProductoService)">
+            <summary>
+            Obtiene un producto a partir de su identificador.
+            </summary>
+            <param name="id">Identificador del producto.</param>
+            <param name="service">Servicio encargado de la búsqueda.</param>
+            <returns>El producto solicitado.</returns>
+            <remarks>Devuelve 404 Not Found si no existe un producto con ese Id.</remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.ObtenerPorCodigo(System.String,ProyectoUno.Aplicacion.Servicios.BuscarProductoPorCodigoService)">
+            <summary>
+            Busca un producto a partir de su código único.
+            </summary>
+            <param name="codigo">Código del producto a buscar.</param>
+            <param name="service">Servicio encargado de la búsqueda.</param>
+            <returns>El producto encontrado.</returns>
+            <remarks>Devuelve 404 Not Found si no existe un producto con ese código.</remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.ObtenerPorNombre(System.String,ProyectoUno.Aplicacion.Servicios.BuscarProductoPorNombreService)">
+            <summary>
+            Busca productos cuyo nombre coincida total o parcialmente con el valor indicado.
+            </summary>
+            <param name="nombre">Texto a buscar dentro del nombre del producto.</param>
+            <param name="service">Servicio encargado de la búsqueda.</param>
+            <returns>Lista de productos coincidentes (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.BajoStock(ProyectoUno.Aplicacion.Servicios.ProductosBajoStockService)">
+            <summary>
+            Lista los productos cuyo stock actual está en o por debajo del stock mínimo.
+            </summary>
+            <returns>Lista de productos bajo stock (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.SinStock(ProyectoUno.Aplicacion.Servicios.ProductosSinStockService)">
+            <summary>
+            Lista los productos que no tienen stock disponible (stock actual igual a cero).
+            </summary>
+            <returns>Lista de productos sin stock (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.Activos(ProyectoUno.Aplicacion.Servicios.ListarProductosActivosService)">
+            <summary>
+            Lista únicamente los productos activos.
+            </summary>
+            <returns>Lista de productos activos (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.Inactivos(ProyectoUno.Aplicacion.Servicios.ListarProductosInactivosService)">
+            <summary>
+            Lista únicamente los productos inactivos.
+            </summary>
+            <returns>Lista de productos inactivos (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.PorCategoria(System.String,ProyectoUno.Aplicacion.Servicios.ListarProductosPorCategoriaService)">
+            <summary>
+            Lista los productos que pertenecen a una categoría específica.
+            </summary>
+            <param name="categoria">Nombre de la categoría a filtrar.</param>
+            <param name="service">Servicio encargado del filtrado.</param>
+            <returns>Lista de productos de esa categoría (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.PorMarca(System.String,ProyectoUno.Aplicacion.Servicios.ListarProductosPorMarcaService)">
+            <summary>
+            Lista los productos que pertenecen a una marca específica.
+            </summary>
+            <param name="marca">Nombre de la marca a filtrar.</param>
+            <param name="service">Servicio encargado del filtrado.</param>
+            <returns>Lista de productos de esa marca (puede estar vacía).</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.ValorInventario(ProyectoUno.Aplicacion.Servicios.ValorInventarioService)">
+            <summary>
+            Calcula el valor total del inventario (suma de precio de venta por stock actual de cada producto).
+            </summary>
+            <returns>El valor monetario total del inventario.</returns>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.CrearProducto(ProyectoUno.Aplicacion.Dto.CrearProductoInput,ProyectoUno.Aplicacion.Servicios.CrearProductoService)">
+            <summary>
+            Crea un nuevo producto en el inventario.
+            </summary>
+            <param name="input">Datos del producto a crear.</param>
+            <param name="crearProductoService">Servicio encargado de la creación.</param>
+            <returns>El identificador del producto creado.</returns>
+            <remarks>
+            El código es obligatorio y único: si ya existe un producto con el mismo código
+            se devuelve 409 Conflict. Si los datos no son válidos (por ejemplo, precios
+            menores o iguales a cero, o código/nombre vacíos) se devuelve 400 Bad Request.
+            </remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.ModificarProducto(System.Int32,ProyectoUno.Aplicacion.Dto.ModificarProductoInput,ProyectoUno.Aplicacion.Servicios.ModificarProductoService)">
+            <summary>
+            Modifica los datos de un producto existente.
+            </summary>
+            <param name="id">Identificador del producto a modificar.</param>
+            <param name="input">Nuevos datos del producto.</param>
+            <param name="service">Servicio encargado de la modificación.</param>
+            <returns>Sin contenido relevante en el cuerpo de la respuesta.</returns>
+            <remarks>
+            Devuelve 404 Not Found si el producto no existe, y 400 Bad Request
+            si los datos enviados no son válidos.
+            </remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.Delete(System.Int32,ProyectoUno.Aplicacion.Servicios.EliminarProductoService)">
+            <summary>
+            Elimina un producto del inventario.
+            </summary>
+            <param name="id">Identificador del producto a eliminar.</param>
+            <param name="servicio">Servicio encargado de la eliminación.</param>
+            <returns>Sin contenido relevante en el cuerpo de la respuesta.</returns>
+            <remarks>Devuelve 404 Not Found si el producto no existe.</remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.IngresarStock(System.Int32,ProyectoUno.Aplicacion.Dto.IngresarStockInput,ProyectoUno.Aplicacion.Servicios.IngresarStockService)">
+            <summary>
+            Registra un ingreso de stock para un producto.
+            </summary>
+            <param name="id">Identificador del producto.</param>
+            <param name="input">Cantidad a ingresar.</param>
+            <param name="service">Servicio encargado del ingreso de stock.</param>
+            <returns>Sin contenido relevante en el cuerpo de la respuesta.</returns>
+            <remarks>
+            Devuelve 404 Not Found si el producto no existe, y 400 Bad Request
+            si la cantidad indicada no es mayor que cero.
+            </remarks>
+        </member>
+        <member name="M:ProyectoUno.Presentacion.Controllers.ProductoController.RetirarStock(System.Int32,ProyectoUno.Aplicacion.Dto.RetirarStockInput,ProyectoUno.Aplicacion.Servicios.RetirarStockService)">
+            <summary>
+            Registra un retiro de stock para un producto.
+            </summary>
+            <param name="id">Identificador del producto.</param>
+            <param name="input">Cantidad a retirar.</param>
+            <param name="service">Servicio encargado del retiro de stock.</param>
+            <returns>Sin contenido relevante en el cuerpo de la respuesta.</returns>
+            <remarks>
+            Devuelve 404 Not Found si el producto no existe, 400 Bad Request si la
+            cantidad indicada no es mayor que cero, y 409 Conflict si se intenta
+            retirar más unidades que las disponibles en stock.
+            </remarks>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+    </members>
+</doc>

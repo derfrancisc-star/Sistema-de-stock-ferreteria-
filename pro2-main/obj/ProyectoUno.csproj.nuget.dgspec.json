@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\ProyectoUno.csproj": {}
+    "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\ProyectoUno.csproj": {}
   },
   "projects": {
-    "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\ProyectoUno.csproj": {
+    "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\ProyectoUno.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\ProyectoUno.csproj",
+        "projectUniqueName": "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\ProyectoUno.csproj",
         "projectName": "ProyectoUno",
-        "projectPath": "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\ProyectoUno.csproj",
+        "projectPath": "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\ProyectoUno.csproj",
         "packagesPath": "C:\\Users\\minec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\obj\\",
+        "outputPath": "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\minec\\AppData\\Roaming\\NuGet\\NuGet.Config"

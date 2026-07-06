@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AOf64AFzexk=",
+  "dgSpecHash": "Cmt4Hh08q00=",
   "success": true,
-  "projectFilePath": "C:\\Users\\minec\\OneDrive\\Desktop\\pro2-main-mejorado\\pro2-main\\ProyectoUno.csproj",
+  "projectFilePath": "C:\\Users\\minec\\OneDrive\\Desktop\\Sistema  de Stock\\pro2-main\\ProyectoUno.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\minec\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
     "C:\\Users\\minec\\.nuget\\packages\\microsoft.extensions.apidescription.server\\9.0.0\\microsoft.extensions.apidescription.server.9.0.0.nupkg.sha512",
